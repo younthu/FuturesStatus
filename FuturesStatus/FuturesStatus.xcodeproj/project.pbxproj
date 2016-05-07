@@ -12,6 +12,7 @@
 		828DB68B1CDDD840006CCA63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 828DB68A1CDDD840006CCA63 /* Assets.xcassets */; };
 		828DB68E1CDDD840006CCA63 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828DB68C1CDDD840006CCA63 /* MainMenu.xib */; };
 		828DB6991CDDD841006CCA63 /* FuturesStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828DB6981CDDD841006CCA63 /* FuturesStatusTests.swift */; };
+		828DB6A61CDE186F006CCA63 /* NSImage+DrawAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 828DB6A41CDE186F006CCA63 /* NSImage+DrawAttributedString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,9 @@
 		828DB6941CDDD841006CCA63 /* FuturesStatusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FuturesStatusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		828DB6981CDDD841006CCA63 /* FuturesStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuturesStatusTests.swift; sourceTree = "<group>"; };
 		828DB69A1CDDD841006CCA63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		828DB6A31CDE186F006CCA63 /* FuturesStatus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FuturesStatus-Bridging-Header.h"; sourceTree = "<group>"; };
+		828DB6A41CDE186F006CCA63 /* NSImage+DrawAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+DrawAttributedString.m"; sourceTree = "<group>"; };
+		828DB6A51CDE186F006CCA63 /* NSImage+DrawAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+DrawAttributedString.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,10 +92,13 @@
 		828DB6871CDDD840006CCA63 /* FuturesStatus */ = {
 			isa = PBXGroup;
 			children = (
+				828DB6A41CDE186F006CCA63 /* NSImage+DrawAttributedString.m */,
+				828DB6A51CDE186F006CCA63 /* NSImage+DrawAttributedString.h */,
 				828DB6881CDDD840006CCA63 /* AppDelegate.swift */,
 				828DB68A1CDDD840006CCA63 /* Assets.xcassets */,
 				828DB68C1CDDD840006CCA63 /* MainMenu.xib */,
 				828DB68F1CDDD840006CCA63 /* Info.plist */,
+				828DB6A31CDE186F006CCA63 /* FuturesStatus-Bridging-Header.h */,
 			);
 			path = FuturesStatus;
 			sourceTree = "<group>";
@@ -266,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				828DB6891CDDD840006CCA63 /* AppDelegate.swift in Sources */,
+				828DB6A61CDE186F006CCA63 /* NSImage+DrawAttributedString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,11 +394,14 @@
 			baseConfigurationReference = 04628870F916F363AD95DD65 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = FuturesStatus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fooldragon.FuturesStatus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FuturesStatus/FuturesStatus-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -399,11 +410,13 @@
 			baseConfigurationReference = 0C2FAF7510809C10B9C9EE30 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = FuturesStatus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fooldragon.FuturesStatus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FuturesStatus/FuturesStatus-Bridging-Header.h";
 			};
 			name = Release;
 		};

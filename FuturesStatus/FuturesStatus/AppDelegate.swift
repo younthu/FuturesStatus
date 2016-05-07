@@ -41,6 +41,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         startNetworkRequest(10);
     }
     
+    func renderInfo(str:NSAttributedString){
+        
+    }
+    
     func startNetworkRequest(intervalSecs:UInt64) -> Void {
         // use sina api, ref: http://blog.sina.com.cn/s/blog_7ed3ed3d0101gphj.html
         Alamofire.request(.GET, "http://hq.sinajs.cn/list=AG1606", parameters: nil)
@@ -61,13 +65,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 if let match = myStringToBeMatched!.rangeOfString(myRegex, options: .RegularExpressionSearch){
                     print("\(myStringToBeMatched) is matching!")
                     
-                    let values = myStringToBeMatched?.substringWithRange(match).componentsSeparatedByString(",")
-                    let str = NSString(format: "%.0f,%@ :%@", (NSDate().timeIntervalSinceReferenceDate), values![0], values![8]) as String;
+                    let values = myStringToBeMatched?.substringWithRange(match).stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "\"")).componentsSeparatedByString(",")
+                    let str = NSString(format: "%@\n%@", values![0], values![8]) as String;
 //                    self.statusItem.button?.title =  str //values![0] + (values![8])
                     
                     if let button = self.statusItem.button {
                         //            button.image = NSImage(named: "StatusBarButtonImage")
-                        button.title = str;
+//                        button.title = str;
+                        let attrStr = NSMutableAttributedString(string: str);
+                        attrStr.addAttribute(NSForegroundColorAttributeName, value: NSColor.redColor(), range: NSMakeRange(0, attrStr.length))
+                        attrStr.addAttribute(NSFontAttributeName, value: NSFont.systemFontOfSize(7), range: NSMakeRange(0, attrStr.length));
+                        button.image = NSImage(attributedString: attrStr);
                     }
                 }
                 
