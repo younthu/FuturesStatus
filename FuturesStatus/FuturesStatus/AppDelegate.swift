@@ -19,26 +19,50 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
+    let popover = NSPopover()
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
 //        let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
         
         if let button = statusItem.button {
 //            button.image = NSImage(named: "StatusBarButtonImage")
-            button.title = "AG1606:3753";
-            button.action = Selector("printQuote:")
-            button
+            button.title = "Waiting...";
+            button.action = Selector("showSettings:")
+            
         }
         
-        let menu = NSMenu()
+        popover.contentViewController = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
         
-        menu.addItem(NSMenuItem(title: "Print Quote", action: Selector("printQuote:"), keyEquivalent: "P"))
-        menu.addItem(NSMenuItem.separatorItem())
-        menu.addItem(NSMenuItem(title: "Quit Quotes", action: Selector("terminate:"), keyEquivalent: "q"))
-        
-        statusItem.menu = menu
+//        let menu = NSMenu()
+//        
+//        menu.addItem(NSMenuItem(title: "Print Quote", action: Selector("printQuote:"), keyEquivalent: "P"))
+//        menu.addItem(NSMenuItem.separatorItem())
+//        menu.addItem(NSMenuItem(title: "Quit Quotes", action: Selector("terminate:"), keyEquivalent: "q"))
+//        
+//        statusItem.menu = menu
         
         startNetworkRequest(10);
+    }
+    
+    func showPopover(sender: AnyObject?) {
+        if let button = statusItem.button {
+            popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
+        }
+    }
+    
+    func closePopover(sender: AnyObject?) {
+        popover.performClose(sender)
+    }
+    func togglePopover(sender: AnyObject?) {
+        if popover.shown {
+            closePopover(sender)
+        } else {
+            showPopover(sender)
+        }
+    }
+    func showSettings(sender:AnyObject?){
+        togglePopover(sender);
     }
     
     func renderInfo(str:NSAttributedString){
