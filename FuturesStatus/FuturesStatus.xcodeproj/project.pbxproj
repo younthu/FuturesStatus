@@ -15,6 +15,7 @@
 		828DB6A61CDE186F006CCA63 /* NSImage+DrawAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 828DB6A41CDE186F006CCA63 /* NSImage+DrawAttributedString.m */; };
 		82A5C5581CE0A028007D2B66 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A5C5561CE0A028007D2B66 /* SettingsViewController.swift */; };
 		82A5C5591CE0A028007D2B66 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82A5C5571CE0A028007D2B66 /* SettingsViewController.xib */; };
+		82B45A011CE1C8D7008EED52 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B45A001CE1C8D7008EED52 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		828DB6A51CDE186F006CCA63 /* NSImage+DrawAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+DrawAttributedString.h"; sourceTree = "<group>"; };
 		82A5C5561CE0A028007D2B66 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		82A5C5571CE0A028007D2B66 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		82B45A001CE1C8D7008EED52 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				82A5C5571CE0A028007D2B66 /* SettingsViewController.xib */,
 				828DB68F1CDDD840006CCA63 /* Info.plist */,
 				828DB6A31CDE186F006CCA63 /* FuturesStatus-Bridging-Header.h */,
+				82B45A001CE1C8D7008EED52 /* Settings.swift */,
 			);
 			path = FuturesStatus;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			files = (
 				828DB6891CDDD840006CCA63 /* AppDelegate.swift in Sources */,
 				828DB6A61CDE186F006CCA63 /* NSImage+DrawAttributedString.m in Sources */,
+				82B45A011CE1C8D7008EED52 /* Settings.swift in Sources */,
 				82A5C5581CE0A028007D2B66 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

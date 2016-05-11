@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10101" systemVersion="15E32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10101"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="SettingsViewController" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="SettingsViewController" customModule="FuturesStatus" customModuleProvider="target">
             <connections>
+                <outlet property="quitButton" destination="5vw-zT-kS2" id="DRf-Vd-U9m"/>
+                <outlet property="refreshIntervalField" destination="0bd-Vm-ULx" id="d80-K1-Bfa"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -14,6 +17,70 @@
         <customView id="Hz6-mo-xeY">
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <tabView translatesAutoresizingMaskIntoConstraints="NO" id="OQz-L9-9O2">
+                    <rect key="frame" x="-7" y="-10" width="494" height="288"/>
+                    <constraints>
+                        <constraint firstItem="6xM-Db-Tmb" firstAttribute="top" secondItem="OQz-L9-9O2" secondAttribute="top" constant="30" id="Dle-W5-Zm9"/>
+                    </constraints>
+                    <font key="font" metaFont="system"/>
+                    <tabViewItems>
+                        <tabViewItem label="设置" identifier="1" id="RxP-IY-QKQ">
+                            <view key="view" id="lPI-Vy-v9x">
+                                <rect key="frame" x="10" y="33" width="474" height="242"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6xM-Db-Tmb">
+                                        <rect key="frame" x="15" y="222" width="56" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="刷新间隔:" id="4MO-2n-5xX">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0bd-Vm-ULx">
+                                        <rect key="frame" x="85" y="220" width="96" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="96" id="bUT-HN-s1f"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="秒" drawsBackground="YES" id="SRx-6Y-R3m">
+                                            <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="HMF-h2-OyD"/>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5vw-zT-kS2">
+                                        <rect key="frame" x="19" y="36" width="66" height="32"/>
+                                        <buttonCell key="cell" type="push" title="退出" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FGy-1A-kfm">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                        </buttonCell>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="0bd-Vm-ULx" firstAttribute="leading" secondItem="6xM-Db-Tmb" secondAttribute="trailing" constant="16" id="0AS-mc-njx"/>
+                                    <constraint firstItem="0bd-Vm-ULx" firstAttribute="centerY" secondItem="6xM-Db-Tmb" secondAttribute="centerY" id="JbW-ob-vxI"/>
+                                    <constraint firstItem="0bd-Vm-ULx" firstAttribute="leading" secondItem="lPI-Vy-v9x" secondAttribute="leading" constant="85" id="iys-GR-XUA"/>
+                                    <constraint firstItem="6xM-Db-Tmb" firstAttribute="leading" secondItem="lPI-Vy-v9x" secondAttribute="leading" constant="17" id="xkg-hq-vvS"/>
+                                </constraints>
+                            </view>
+                        </tabViewItem>
+                        <tabViewItem label="View" identifier="2" id="hq2-wp-Po8">
+                            <view key="view" id="A0n-tW-vKB">
+                                <rect key="frame" x="10" y="33" width="474" height="242"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </tabViewItem>
+                    </tabViewItems>
+                </tabView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="OQz-L9-9O2" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="H0j-dv-8iO"/>
+                <constraint firstItem="OQz-L9-9O2" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="QHw-9M-tOG"/>
+                <constraint firstAttribute="bottom" secondItem="OQz-L9-9O2" secondAttribute="bottom" id="V4s-yd-lym"/>
+                <constraint firstAttribute="trailing" secondItem="OQz-L9-9O2" secondAttribute="trailing" id="oV2-Wy-jA6"/>
+            </constraints>
         </customView>
     </objects>
 </document>

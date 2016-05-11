@@ -42,7 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        
 //        statusItem.menu = menu
         
-        startNetworkRequest(10);
+        startNetworkRequest(UInt64(Settings.sharedInstance().refreshInSeconds));
     }
     
     func showPopover(sender: AnyObject?) {
@@ -70,12 +70,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func startNetworkRequest(intervalSecs:UInt64) -> Void {
+        NSLog("refreshing with interval: %d...", intervalSecs)
         // use sina api, ref: http://blog.sina.com.cn/s/blog_7ed3ed3d0101gphj.html
         Alamofire.request(.GET, "http://hq.sinajs.cn/list=AG1606", parameters: nil)
             .responseString { response in
                 
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(intervalSecs * NSEC_PER_SEC)), dispatch_get_main_queue(), {
-                    self.startNetworkRequest(intervalSecs);
+                    self.startNetworkRequest(UInt64(Settings.sharedInstance().refreshInSeconds));
                 })
                 
                 if  response.result.isFailure {
@@ -87,9 +88,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 let myStringToBeMatched = response.result.value
                 let myRegex = "\".*\""
                 if let match = myStringToBeMatched!.rangeOfString(myRegex, options: .RegularExpressionSearch){
+                    
                     print("\(myStringToBeMatched) is matching!")
                     
                     let values = myStringToBeMatched?.substringWithRange(match).stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "\"")).componentsSeparatedByString(",")
+                    if  values?.count < 9 {
+                        return;
+                    }
+                    
                     let str = NSString(format: "%@\n%@", values![0], values![8]) as String;
 //                    self.statusItem.button?.title =  str //values![0] + (values![8])
                     
