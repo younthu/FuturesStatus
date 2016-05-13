@@ -12,6 +12,7 @@ import BlocksKit
 
 class SettingsViewController: NSViewController,NSTextFieldDelegate {
 
+    @IBOutlet weak var apiList: NSComboBox!
     let settings:Settings = Settings.sharedInstance()
     
     override func viewDidLoad() {
@@ -31,10 +32,20 @@ class SettingsViewController: NSViewController,NSTextFieldDelegate {
             NSApp.terminate(self)
             return RACSignal.empty()
         })
+        
+        self.itemNameLabel.rac_textSignal().toSignalProducer()
+            .map({text in text as! String})
+            .startWithNext { (string:String) in
+                if(string.isEmpty){
+                    return;
+                }
+                self.settings.itemName = string;
+        }
     }
     
     
     
+    @IBOutlet weak var itemNameLabel: NSTextField!
     @IBOutlet weak var quitButton: NSButton!
     @IBOutlet weak var refreshIntervalField: NSTextField!
 }

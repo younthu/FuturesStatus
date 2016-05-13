@@ -10,6 +10,7 @@ import Cocoa
 
 class Settings: NSObject {
     var refreshInSeconds:NSInteger = 1
+    var itemName: String = "AG1606"
     
     static var _sharedInstance:Settings = Settings.createSharedInstance();
     
