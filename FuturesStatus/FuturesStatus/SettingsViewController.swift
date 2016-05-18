@@ -39,7 +39,7 @@ class SettingsViewController: NSViewController,NSTextFieldDelegate {
                 if(string.isEmpty){
                     return;
                 }
-                self.settings.itemName = string;
+                self.settings.itemName.value = string;
         }
     }
     

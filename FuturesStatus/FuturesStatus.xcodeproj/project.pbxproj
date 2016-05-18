@@ -13,6 +13,7 @@
 		820E15801CE48A8B0012BC4E /* TextInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820E157F1CE48A8B0012BC4E /* TextInfo.swift */; };
 		820E15821CE48D100012BC4E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820E15811CE48D100012BC4E /* Utils.swift */; };
 		82697CC31CE4BB4A00D5FB6A /* SinaFuturesSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82697CC21CE4BB4A00D5FB6A /* SinaFuturesSource.swift */; };
+		827450A71CE5D3280038DCCF /* CombinedSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827450A61CE5D3280038DCCF /* CombinedSource.swift */; };
 		828DB6891CDDD840006CCA63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828DB6881CDDD840006CCA63 /* AppDelegate.swift */; };
 		828DB68B1CDDD840006CCA63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 828DB68A1CDDD840006CCA63 /* Assets.xcassets */; };
 		828DB68E1CDDD840006CCA63 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828DB68C1CDDD840006CCA63 /* MainMenu.xib */; };
@@ -42,6 +43,7 @@
 		820E157F1CE48A8B0012BC4E /* TextInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInfo.swift; sourceTree = "<group>"; };
 		820E15811CE48D100012BC4E /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		82697CC21CE4BB4A00D5FB6A /* SinaFuturesSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinaFuturesSource.swift; sourceTree = "<group>"; };
+		827450A61CE5D3280038DCCF /* CombinedSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinedSource.swift; sourceTree = "<group>"; };
 		828DB6851CDDD840006CCA63 /* FuturesStatus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuturesStatus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828DB6881CDDD840006CCA63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828DB68A1CDDD840006CCA63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				820E157F1CE48A8B0012BC4E /* TextInfo.swift */,
 				820E15811CE48D100012BC4E /* Utils.swift */,
 				82697CC21CE4BB4A00D5FB6A /* SinaFuturesSource.swift */,
+				827450A61CE5D3280038DCCF /* CombinedSource.swift */,
 			);
 			path = FuturesStatus;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				820E157C1CE488AD0012BC4E /* InfoSourceProtocol.swift in Sources */,
 				828DB6891CDDD840006CCA63 /* AppDelegate.swift in Sources */,
 				820E157E1CE488F20012BC4E /* InfoItemProtocol.swift in Sources */,
+				827450A71CE5D3280038DCCF /* CombinedSource.swift in Sources */,
 				828DB6A61CDE186F006CCA63 /* NSImage+DrawAttributedString.m in Sources */,
 				820E15801CE48A8B0012BC4E /* TextInfo.swift in Sources */,
 				82B45A011CE1C8D7008EED52 /* Settings.swift in Sources */,

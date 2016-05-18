@@ -8,6 +8,8 @@
 
 import Cocoa
 import Alamofire
+import ReactiveCocoa
+import BlocksKit
 
 let UP_CHAR="↓"
 let DOWN_CHAR="↑"
@@ -30,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
 //            button.image = NSImage(named: "StatusBarButtonImage")
             button.title = "Waiting...";
-            button.action = Selector("showSettings:")
+            button.action = #selector(AppDelegate.showSettings(_:))
             
         }
         
@@ -43,6 +45,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         sinaSource.start();
+        
+        Settings.sharedInstance().itemName.signal.observeNext { (value:String) in
+            self.sinaSource.itemId = value;
+        }
         
         popover.contentViewController = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
         
