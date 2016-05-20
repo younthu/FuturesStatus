@@ -53,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         popover.contentViewController = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
-        
+        popover.behavior = NSPopoverBehavior.Transient;
     }
     
     func showPopover(sender: AnyObject?) {
