@@ -33,6 +33,7 @@ class SettingsViewController: NSViewController,NSTextFieldDelegate {
             return RACSignal.empty()
         })
         
+        self.itemNameLabel.stringValue = Settings.sharedInstance().itemName.value;
         self.itemNameLabel.rac_textSignal().toSignalProducer()
             .map({text in text as! String})
             .startWithNext { (string:String) in

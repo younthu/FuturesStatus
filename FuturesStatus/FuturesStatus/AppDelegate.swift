@@ -44,6 +44,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         
+        sinaSource.itemId = Settings.sharedInstance().itemName.value;
+        
         sinaSource.start();
         
         Settings.sharedInstance().itemName.signal.observeNext { (value:String) in
