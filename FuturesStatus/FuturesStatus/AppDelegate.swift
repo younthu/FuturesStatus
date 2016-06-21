@@ -39,7 +39,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sinaSource.newItemSignal.observeNext { (item: InfoItemProtocol) in
             if let button = self.statusItem.button {
                 //            button.image = NSImage(named: "StatusBarButtonImage")
-                button.image = item.info();
+                let image = item.info();
+                button.image = image;
                 
             }
         }
@@ -60,6 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
         }
+        popover.behavior = NSPopoverBehavior.Transient;
     }
     
     func closePopover(sender: AnyObject?) {

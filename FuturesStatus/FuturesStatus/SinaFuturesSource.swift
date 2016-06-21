@@ -63,7 +63,7 @@ class SinaFuturesSource: NSObject , InfoSourceProtocol{
                     let item = TextInfo();
                     item.title = title;
                     item.text = value;
-                    
+                    NSLog("%@,%@", title, value);
                     self.observer.sendNext(item);
                 }
                 
