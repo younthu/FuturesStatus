@@ -9,7 +9,7 @@ You can configure which futures to display, how frequently refresh it.
 
 # Road map
 1. Show silver & gold data in USD & RMB in the dropdown menu.
-2. 
+2. Show stock data in Chinese.
 
 # Apache License
 See the LICENSE file for the detail. It is MIT or Apache, whatever, free for you.
