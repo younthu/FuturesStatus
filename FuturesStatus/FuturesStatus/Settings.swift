@@ -13,7 +13,7 @@ let kItemNameKey = "Settings.ItemName.key";
 
 class Settings: NSObject {
     var refreshInSeconds:NSInteger = 1
-    var itemName:MutableProperty< String > ;
+    var itemName:MutableProperty< String >  = MutableProperty("");
     
     static var _sharedInstance:Settings = Settings.createSharedInstance();
     
@@ -25,6 +25,7 @@ class Settings: NSObject {
             //            NSLog("Get saved value %@", itemName);
             NSLog("Get value %@", itemName as! String);
             instance.itemName.value = itemName as! String;
+            
         }
         
         instance.itemName.signal.observeNext { (newValue :String) in
